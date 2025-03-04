@@ -4,7 +4,11 @@
   "main": "index.js",
   "author": "Utopi-a",
   "license": "MIT",
+  "scripts": {
+    "test-puppeteer": "tsx src/script/testPuppeteer.ts"
+  },
   "dependencies": {
+    "@sparticuz/chromium": "^133.0.0",
     "puppeteer": "^24.3.1",
     "tsx": "^4.19.3"
   }

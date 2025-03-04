@@ -1,8 +1,16 @@
 import puppeteer from "puppeteer";
+import chrome from "@sparticuz/chromium";
 
 (async () => {
   // ブラウザを起動
-  const browser = await puppeteer.launch();
+  const browser =
+    process.env.NODE_ENV === "production"
+      ? await puppeteer.launch({
+          args: chrome.args,
+          executablePath: await chrome.executablePath(),
+          headless: chrome.headless,
+        })
+      : await puppeteer.launch({});
 
   try {
     // 新しいページを開く
